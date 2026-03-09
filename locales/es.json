@@ -1,4 +1,14 @@
 {
+  "ds": {
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "add": "Agregar",
+    "create": "Crear",
+    "edit": "Editar",
+    "upload": "Subir"
+  },
   "common": {
     "save": "Guardar",
     "cancel": "Cancelar",

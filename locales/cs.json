@@ -1,4 +1,14 @@
 {
+  "ds": {
+    "confirm": "Potvrdit",
+    "cancel": "Zrusit",
+    "delete": "Smazat",
+    "save": "Ulozit",
+    "add": "Pridat",
+    "create": "Vytvorit",
+    "edit": "Upravit",
+    "upload": "Nahrat"
+  },
   "common": {
     "save": "Ulozit",
     "cancel": "Zrusit",
