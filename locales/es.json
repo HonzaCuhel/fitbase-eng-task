@@ -1,0 +1,205 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Agregar",
+    "search": "Buscar...",
+    "loading": "Cargando...",
+    "noResults": "Sin resultados",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "backToHome": "Volver al inicio",
+    "actions": "Acciones",
+    "status": "Estado",
+    "export": "Exportar",
+    "import": "Importar",
+    "filter": "Filtrar",
+    "clearFilters": "Limpiar filtros",
+    "showing": "Mostrando {from}-{to} de {total}",
+    "createdAt": "Creado",
+    "updatedAt": "Actualizado"
+  },
+  "auth": {
+    "login": "Iniciar sesion",
+    "register": "Crear cuenta",
+    "logout": "Cerrar sesion",
+    "email": "Correo electronico",
+    "password": "Contrasena",
+    "fullName": "Nombre completo",
+    "gymName": "Nombre del gimnasio",
+    "forgotPassword": "Olvidaste tu contrasena?",
+    "noAccount": "No tienes cuenta?",
+    "hasAccount": "Ya tienes cuenta?",
+    "loginFailed": "Correo o contrasena invalidos",
+    "registerFailed": "Registro fallido"
+  },
+  "class": {
+    "title": "Clases",
+    "addClass": "Agregar clase",
+    "editClass": "Editar clase",
+    "className": "Nombre de clase",
+    "description": "Descripcion",
+    "trainer": "Instructor",
+    "capacity": "Capacidad",
+    "location": "Ubicacion",
+    "tags": "Etiquetas",
+    "type": "Tipo",
+    "schedule": "Horario",
+    "members": "Miembros",
+    "settings": "Configuracion",
+    "overview": "Vista general",
+    "status": {
+      "draft": "Borrador",
+      "published": "Publicado",
+      "archived": "Archivado"
+    },
+    "types": {
+      "yoga": "Yoga",
+      "hiit": "HIIT",
+      "pilates": "Pilates",
+      "strength": "Fuerza",
+      "barre": "Barre",
+      "meditation": "Meditacion",
+      "crossfit": "CrossFit",
+      "other": "Otro"
+    },
+    "spotsLeft": "{count} lugares disponibles",
+    "full": "Clase llena",
+    "noMembers": "Sin miembros inscritos",
+    "enrollmentCount": "{count} inscritos",
+    "created": "Clase creada",
+    "updated": "Clase actualizada",
+    "deleted": "Clase eliminada",
+    "generateDescription": "Generar con IA",
+    "generating": "Generando...",
+    "dangerZone": "Zona de peligro",
+    "deleteWarning": "Eliminar una clase eliminará todos los miembros inscritos y los datos del horario.",
+    "confirmDelete": "¿Estás seguro de que deseas eliminar \"{title}\"?"
+  },
+  "member": {
+    "title": "Miembros",
+    "addMember": "Agregar miembro",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electronico",
+    "phone": "Telefono",
+    "added": "Miembro agregado",
+    "removed": "Miembro eliminado",
+    "imported": "{count} miembros importados",
+    "status": {
+      "confirmed": "Confirmado",
+      "pending": "Pendiente",
+      "declined": "Rechazado"
+    },
+    "importMembers": "Importar miembros",
+    "exportMembers": "Exportar miembros",
+    "allMembers": "Todos los miembros",
+    "importDescription": "Sube un archivo CSV con columnas: nombre, apellido, email, teléfono",
+    "confirmRemove": "¿Eliminar este miembro?"
+  },
+  "trainer": {
+    "title": "Instructores",
+    "addTrainer": "Agregar instructor",
+    "fullName": "Nombre completo",
+    "email": "Correo electronico",
+    "specialties": "Especialidades",
+    "bio": "Biografia",
+    "created": "Instructor agregado",
+    "updated": "Instructor actualizado",
+    "deleted": "Instructor eliminado",
+    "confirmRemove": "¿Eliminar a {name}?",
+    "specialtiesPlaceholder": "Yoga, HIIT, Pilates"
+  },
+  "enrollment": {
+    "enrolled": "Miembro inscrito",
+    "unenrolled": "Miembro desinscrito",
+    "status": {
+      "enrolled": "Inscrito",
+      "waitlisted": "En lista de espera",
+      "declined": "Rechazado"
+    }
+  },
+  "gym": {
+    "title": "Configuracion del gimnasio",
+    "name": "Nombre del gimnasio",
+    "branding": "Marca",
+    "contact": "Informacion de contacto",
+    "settings": "Configuracion",
+    "updated": "Configuracion actualizada",
+    "primaryColor": "Color primario",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "timezone": "Zona horaria",
+    "defaultLanguage": "Idioma predeterminado",
+    "setupDescription": "Configura tu gimnasio para comenzar."
+  },
+  "dashboard": {
+    "title": "Panel",
+    "totalMembers": "Total de miembros",
+    "totalClasses": "Total de clases",
+    "totalTrainers": "Instructores",
+    "upcomingClasses": "Proximas clases",
+    "recentEnrollments": "Inscripciones recientes"
+  },
+  "schedule": {
+    "title": "Horario",
+    "addSession": "Agregar sesion",
+    "dayOfWeek": "Dia",
+    "startTime": "Hora de inicio",
+    "endTime": "Hora de fin",
+    "room": "Sala",
+    "days": {
+      "0": "Domingo",
+      "1": "Lunes",
+      "2": "Martes",
+      "3": "Miercoles",
+      "4": "Jueves",
+      "5": "Viernes",
+      "6": "Sabado"
+    }
+  },
+  "app": {
+    "browseClasses": "Explorar clases",
+    "enrollNow": "Inscribirse",
+    "enrollSuccess": "Estas inscrito! Revisa tu correo para confirmacion.",
+    "poweredBy": "Desarrollado por",
+    "classDetails": "Detalles de la clase",
+    "aboutTrainer": "Sobre el instructor",
+    "classSchedule": "Horario"
+  },
+  "ai": {
+    "insights": "Analisis IA",
+    "generating": "Analizando...",
+    "noInsights": "Sin analisis disponibles",
+    "getInsights": "Obtener analisis"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Ingresa un correo valido",
+    "minLength": "Minimo {min} caracteres",
+    "maxLength": "Maximo {max} caracteres"
+  },
+  "nav": {
+    "dashboard": "Panel",
+    "classes": "Clases",
+    "members": "Miembros",
+    "trainers": "Instructores",
+    "settings": "Configuracion"
+  },
+  "errors": {
+    "loadClasses": "Error al cargar las clases",
+    "loadMembers": "Error al cargar los miembros",
+    "loadClass": "Error al cargar la clase",
+    "updateClass": "Error al actualizar la clase",
+    "loadTrainers": "Error al cargar los entrenadores",
+    "loadEnrollments": "Error al cargar las inscripciones",
+    "updateGym": "Error al actualizar la configuración",
+    "generateDescription": "Error al generar la descripción",
+    "enrollmentFailed": "Error en la inscripción",
+    "loadPublicClasses": "Error al cargar las clases",
+    "loadPublicClass": "Error al cargar la clase"
+  }
+}

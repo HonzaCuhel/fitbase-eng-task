@@ -1,0 +1,205 @@
+{
+  "common": {
+    "save": "Ulozit",
+    "cancel": "Zrusit",
+    "delete": "Smazat",
+    "edit": "Upravit",
+    "add": "Pridat",
+    "search": "Hledat...",
+    "loading": "Nacitani...",
+    "noResults": "Zadne vysledky",
+    "confirm": "Potvrdit",
+    "back": "Zpet",
+    "backToHome": "Zpet na hlavni stranku",
+    "actions": "Akce",
+    "status": "Stav",
+    "export": "Export",
+    "import": "Import",
+    "filter": "Filtrovat",
+    "clearFilters": "Zrusit filtry",
+    "showing": "Zobrazeno {from}-{to} z {total}",
+    "createdAt": "Vytvoreno",
+    "updatedAt": "Aktualizovano"
+  },
+  "auth": {
+    "login": "Prihlasit se",
+    "register": "Vytvorit ucet",
+    "logout": "Odhlasit se",
+    "email": "Email",
+    "password": "Heslo",
+    "fullName": "Cele jmeno",
+    "gymName": "Nazev gymu",
+    "forgotPassword": "Zapomenute heslo?",
+    "noAccount": "Nemate ucet?",
+    "hasAccount": "Uz mate ucet?",
+    "loginFailed": "Neplatny email nebo heslo",
+    "registerFailed": "Registrace selhala"
+  },
+  "class": {
+    "title": "Lekce",
+    "addClass": "Pridat lekci",
+    "editClass": "Upravit lekci",
+    "className": "Nazev lekce",
+    "description": "Popis",
+    "trainer": "Lektor",
+    "capacity": "Kapacita",
+    "location": "Misto",
+    "tags": "Tagy",
+    "type": "Typ",
+    "schedule": "Rozvrh",
+    "members": "Clenove",
+    "settings": "Nastaveni",
+    "overview": "Prehled",
+    "status": {
+      "draft": "Koncept",
+      "published": "Publikovano",
+      "archived": "Archivovano"
+    },
+    "types": {
+      "yoga": "Joga",
+      "hiit": "HIIT",
+      "pilates": "Pilates",
+      "strength": "Silovy trenink",
+      "barre": "Barre",
+      "meditation": "Meditace",
+      "crossfit": "CrossFit",
+      "other": "Ostatni"
+    },
+    "spotsLeft": "Zbyva {count} mist",
+    "full": "Lekce je plna",
+    "noMembers": "Zatim zadni clenove",
+    "enrollmentCount": "{count} zapsanych",
+    "created": "Lekce vytvorena",
+    "updated": "Lekce aktualizovana",
+    "deleted": "Lekce smazana",
+    "generateDescription": "Generovat pomoci AI",
+    "generating": "Generovani...",
+    "dangerZone": "Nebezpečná zóna",
+    "deleteWarning": "Smazání kurzu odstraní všechny registrované členy a data rozvrhu.",
+    "confirmDelete": "Opravdu chcete smazat \"{title}\"?"
+  },
+  "member": {
+    "title": "Clenove",
+    "addMember": "Pridat clena",
+    "firstName": "Jmeno",
+    "lastName": "Prijmeni",
+    "email": "Email",
+    "phone": "Telefon",
+    "added": "Clen pridan",
+    "removed": "Clen odstranen",
+    "imported": "{count} clenu naimportovano",
+    "status": {
+      "confirmed": "Potvrzeno",
+      "pending": "Cekajici",
+      "declined": "Odmitnuto"
+    },
+    "importMembers": "Import clenu",
+    "exportMembers": "Export clenu",
+    "allMembers": "Vsichni clenove",
+    "importDescription": "Nahrajte CSV soubor se sloupci: jméno, příjmení, email, telefon",
+    "confirmRemove": "Odebrat tohoto člena?"
+  },
+  "trainer": {
+    "title": "Lektori",
+    "addTrainer": "Pridat lektora",
+    "fullName": "Cele jmeno",
+    "email": "Email",
+    "specialties": "Specializace",
+    "bio": "Bio",
+    "created": "Lektor pridan",
+    "updated": "Lektor aktualizovan",
+    "deleted": "Lektor odstranen",
+    "confirmRemove": "Odebrat {name}?",
+    "specialtiesPlaceholder": "Jóga, HIIT, Pilates"
+  },
+  "enrollment": {
+    "enrolled": "Clen zapsan",
+    "unenrolled": "Clen odhlsen",
+    "status": {
+      "enrolled": "Zapsan",
+      "waitlisted": "Na cekaci listine",
+      "declined": "Odmitnut"
+    }
+  },
+  "gym": {
+    "title": "Nastaveni gymu",
+    "name": "Nazev gymu",
+    "branding": "Vizualni identita",
+    "contact": "Kontaktni udaje",
+    "settings": "Nastaveni",
+    "updated": "Nastaveni gymu aktualizovano",
+    "primaryColor": "Primární barva",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "address": "Adresa",
+    "timezone": "Časové pásmo",
+    "defaultLanguage": "Výchozí jazyk",
+    "setupDescription": "Nastavte svou posilovnu a začněte."
+  },
+  "dashboard": {
+    "title": "Prehled",
+    "totalMembers": "Celkem clenu",
+    "totalClasses": "Celkem lekci",
+    "totalTrainers": "Lektoru",
+    "upcomingClasses": "Nadchazejici lekce",
+    "recentEnrollments": "Posledni zapisy"
+  },
+  "schedule": {
+    "title": "Rozvrh",
+    "addSession": "Pridat termin",
+    "dayOfWeek": "Den",
+    "startTime": "Zacatek",
+    "endTime": "Konec",
+    "room": "Mistnost",
+    "days": {
+      "0": "Nedele",
+      "1": "Pondeli",
+      "2": "Utery",
+      "3": "Streda",
+      "4": "Ctvrtek",
+      "5": "Patek",
+      "6": "Sobota"
+    }
+  },
+  "app": {
+    "browseClasses": "Prohlizet lekce",
+    "enrollNow": "Zapsat se",
+    "enrollSuccess": "Jste zapsani! Zkontrolujte svuj email.",
+    "poweredBy": "Provozuje",
+    "classDetails": "Detail lekce",
+    "aboutTrainer": "O lektorovi",
+    "classSchedule": "Rozvrh"
+  },
+  "ai": {
+    "insights": "AI analyza",
+    "generating": "Analyzuji...",
+    "noInsights": "Zadne analyzy",
+    "getInsights": "Analyzovat"
+  },
+  "validation": {
+    "required": "Toto pole je povinne",
+    "email": "Zadejte platny email",
+    "minLength": "Minimalne {min} znaku",
+    "maxLength": "Maximalne {max} znaku"
+  },
+  "nav": {
+    "dashboard": "Prehled",
+    "classes": "Lekce",
+    "members": "Clenove",
+    "trainers": "Lektori",
+    "settings": "Nastaveni"
+  },
+  "errors": {
+    "loadClasses": "Nepodařilo se načíst kurzy",
+    "loadMembers": "Nepodařilo se načíst členy",
+    "loadClass": "Nepodařilo se načíst kurz",
+    "updateClass": "Nepodařilo se aktualizovat kurz",
+    "loadTrainers": "Nepodařilo se načíst trenéry",
+    "loadEnrollments": "Nepodařilo se načíst registrace",
+    "updateGym": "Nepodařilo se aktualizovat nastavení",
+    "generateDescription": "Nepodařilo se vygenerovat popis",
+    "enrollmentFailed": "Registrace se nezdařila",
+    "loadPublicClasses": "Nepodařilo se načíst kurzy",
+    "loadPublicClass": "Nepodařilo se načíst kurz"
+  }
+}

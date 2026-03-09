@@ -1,0 +1,9 @@
+export default {
+  NAME: 255,
+  TITLE: 1000,
+  DESCRIPTION: 5000,
+  EMAIL: 320,
+  CONTENT: 50000,
+  URL: 2048,
+  SHORT_TEXT: 500,
+}

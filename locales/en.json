@@ -1,0 +1,205 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search...",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "confirm": "Confirm",
+    "back": "Back",
+    "backToHome": "Back to home",
+    "actions": "Actions",
+    "status": "Status",
+    "export": "Export",
+    "import": "Import",
+    "filter": "Filter",
+    "clearFilters": "Clear filters",
+    "showing": "Showing {from}-{to} of {total}",
+    "createdAt": "Created",
+    "updatedAt": "Updated"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Create account",
+    "logout": "Log out",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name",
+    "gymName": "Gym name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginFailed": "Invalid email or password",
+    "registerFailed": "Registration failed"
+  },
+  "class": {
+    "title": "Classes",
+    "addClass": "Add class",
+    "editClass": "Edit class",
+    "className": "Class name",
+    "description": "Description",
+    "trainer": "Trainer",
+    "capacity": "Capacity",
+    "location": "Location",
+    "tags": "Tags",
+    "type": "Type",
+    "schedule": "Schedule",
+    "members": "Members",
+    "settings": "Settings",
+    "overview": "Overview",
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    },
+    "types": {
+      "yoga": "Yoga",
+      "hiit": "HIIT",
+      "pilates": "Pilates",
+      "strength": "Strength",
+      "barre": "Barre",
+      "meditation": "Meditation",
+      "crossfit": "CrossFit",
+      "other": "Other"
+    },
+    "spotsLeft": "{count} spots left",
+    "full": "Class is full",
+    "noMembers": "No members enrolled yet",
+    "enrollmentCount": "{count} enrolled",
+    "created": "Class created",
+    "updated": "Class updated",
+    "deleted": "Class deleted",
+    "generateDescription": "Generate with AI",
+    "generating": "Generating...",
+    "dangerZone": "Danger Zone",
+    "deleteWarning": "Deleting a class will remove all enrolled members and schedule data.",
+    "confirmDelete": "Are you sure you want to delete \"{title}\"?"
+  },
+  "member": {
+    "title": "Members",
+    "addMember": "Add member",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "added": "Member added",
+    "removed": "Member removed",
+    "imported": "{count} members imported",
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "declined": "Declined"
+    },
+    "importMembers": "Import members",
+    "exportMembers": "Export members",
+    "allMembers": "All members",
+    "importDescription": "Upload a CSV file with columns: firstName, lastName, email, phone",
+    "confirmRemove": "Remove this member?"
+  },
+  "trainer": {
+    "title": "Trainers",
+    "addTrainer": "Add trainer",
+    "fullName": "Full name",
+    "email": "Email",
+    "specialties": "Specialties",
+    "bio": "Bio",
+    "created": "Trainer added",
+    "updated": "Trainer updated",
+    "deleted": "Trainer removed",
+    "confirmRemove": "Remove {name}?",
+    "specialtiesPlaceholder": "Yoga, HIIT, Pilates"
+  },
+  "enrollment": {
+    "enrolled": "Member enrolled",
+    "unenrolled": "Member unenrolled",
+    "status": {
+      "enrolled": "Enrolled",
+      "waitlisted": "Waitlisted",
+      "declined": "Declined"
+    }
+  },
+  "gym": {
+    "title": "Gym Settings",
+    "name": "Gym name",
+    "branding": "Branding",
+    "contact": "Contact info",
+    "settings": "Settings",
+    "updated": "Gym settings updated",
+    "primaryColor": "Primary Color",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "timezone": "Timezone",
+    "defaultLanguage": "Default Language",
+    "setupDescription": "Set up your gym to get started."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalMembers": "Total Members",
+    "totalClasses": "Total Classes",
+    "totalTrainers": "Trainers",
+    "upcomingClasses": "Upcoming Classes",
+    "recentEnrollments": "Recent Enrollments"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "addSession": "Add session",
+    "dayOfWeek": "Day",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "room": "Room",
+    "days": {
+      "0": "Sunday",
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Saturday"
+    }
+  },
+  "app": {
+    "browseClasses": "Browse Classes",
+    "enrollNow": "Enroll Now",
+    "enrollSuccess": "You're enrolled! Check your email for confirmation.",
+    "poweredBy": "Powered by",
+    "classDetails": "Class Details",
+    "aboutTrainer": "About the Trainer",
+    "classSchedule": "Schedule"
+  },
+  "ai": {
+    "insights": "AI Insights",
+    "generating": "Analyzing...",
+    "noInsights": "No insights available",
+    "getInsights": "Get Insights"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email",
+    "minLength": "Minimum {min} characters",
+    "maxLength": "Maximum {max} characters"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "classes": "Classes",
+    "members": "Members",
+    "trainers": "Trainers",
+    "settings": "Settings"
+  },
+  "errors": {
+    "loadClasses": "Failed to load classes",
+    "loadMembers": "Failed to load members",
+    "loadClass": "Failed to load class",
+    "updateClass": "Failed to update class",
+    "loadTrainers": "Failed to load trainers",
+    "loadEnrollments": "Failed to load enrollments",
+    "updateGym": "Failed to update gym settings",
+    "generateDescription": "Failed to generate description",
+    "enrollmentFailed": "Enrollment failed",
+    "loadPublicClasses": "Failed to load classes",
+    "loadPublicClass": "Failed to load class"
+  }
+}

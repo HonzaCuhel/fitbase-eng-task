@@ -1,0 +1,28 @@
+{
+  "name": "fitbase-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.59",
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^13.1.0",
+    "ai": "^6.0.121",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^3.0.0",
+    "koa-bodyparser": "^4.4.1",
+    "koa-helmet": "^8.0.0",
+    "koa-jwt": "^4.0.4",
+    "koa-logger": "^3.2.1",
+    "mongoose": "^8.15.0",
+    "zod": "^3.24.0"
+  },
+  "engines": {
+    "node": ">=22.x"
+  }
+}
