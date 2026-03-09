@@ -72,4 +72,8 @@
   button, [role="button"] {
     cursor: pointer;
   }
+
+  .el-loading-mask {
+    background-color: transparent;
+  }
 }

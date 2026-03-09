@@ -1,5 +1,6 @@
 export const useGymStore = defineStore('gym', {
   state: () => ({
+    isLoading: false,
     name: '',
     domain: '',
     branding: {
@@ -27,6 +28,7 @@ export const useGymStore = defineStore('gym', {
 
   actions: {
     async fetch() {
+      this.isLoading = true
       try {
         const data = await useApi().get('/gym')
         this.$patch(data)
@@ -34,6 +36,9 @@ export const useGymStore = defineStore('gym', {
       }
       catch {
         // Gym not set up yet — that's fine
+      }
+      finally {
+        this.isLoading = false
       }
     },
 

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Form :model="form" :rules="rules" @submit="onSubmit">
+  <div v-loading="gymStore.isLoading" :class="{ 'min-h-[200px]': gymStore.isLoading }">
+    <Form v-if="!gymStore.isLoading" :model="form" :rules="rules" @submit="onSubmit">
       <h3 class="mb-4 text-sm font-medium uppercase text-gray-400">{{ $t('gym.branding') }}</h3>
 
       <InputBlock :label="$t('gym.name')" prop="name">
