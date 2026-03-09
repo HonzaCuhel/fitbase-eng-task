@@ -76,4 +76,18 @@
   .el-loading-mask {
     background-color: transparent;
   }
+
+  .el-textarea,
+  .el-input {
+    width: 100%;
+  }
+
+  .button.is-loading > :not(.el-loading-mask) {
+    visibility: hidden;
+  }
+
+  .button--primary .el-loading-spinner .path,
+  .button--danger .el-loading-spinner .path {
+    stroke: white;
+  }
 }

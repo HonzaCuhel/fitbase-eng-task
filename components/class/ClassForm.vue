@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-2xl">
+  <div>
     <Form :model="form" :rules="rules" @submit="onSubmit">
       <InputBlock :label="$t('class.className')" prop="title">
         <TextInput v-model="form.title" />
@@ -14,7 +14,7 @@
       </InputBlock>
 
       <InputBlock :label="$t('class.description')" prop="description">
-        <div class="relative">
+        <div class="relative w-full">
           <TextArea v-model="form.description" />
           <AiDescriptionGenerator
             :title="form.title"

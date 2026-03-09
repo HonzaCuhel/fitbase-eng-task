@@ -16,7 +16,7 @@
       <TextArea v-model="form.bio" />
     </InputBlock>
 
-    <div class="mt-4 flex justify-end gap-2">
+    <div class="mt-6 flex justify-end gap-2">
       <Button @click="dialogStore.close()">{{ $t('common.cancel') }}</Button>
       <Button type="primary" native-type="submit" :loading="isSubmitting">
         {{ $t('common.save') }}

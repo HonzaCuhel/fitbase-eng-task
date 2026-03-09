@@ -25,7 +25,7 @@
       </InputBlock>
 
       <InputBlock :label="$t('gym.address')" prop="contactAddress">
-        <TextArea v-model="form.contactAddress" :rows="3" />
+        <TextArea v-model="form.contactAddress" :autosize="{ minRows: 3, maxRows: 6 }" />
       </InputBlock>
 
       <h3 class="mb-4 mt-8 text-sm font-medium uppercase text-gray-400">{{ $t('gym.settings') }}</h3>
