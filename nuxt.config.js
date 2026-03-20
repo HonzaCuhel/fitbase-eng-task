@@ -62,9 +62,12 @@ export default defineNuxtConfig({
     ],
     resolve: {
       dedupe: ['dayjs'],
+      alias: {
+        'dayjs/plugin/localeData': 'dayjs/esm/plugin/localeData/index.js',
+      },
     },
     optimizeDeps: {
-      include: ['dayjs', 'dayjs/plugin/localeData', 'element-plus', '@attendu/utils'],
+      include: ['dayjs', 'element-plus', '@attendu/utils'],
     },
   },
 
