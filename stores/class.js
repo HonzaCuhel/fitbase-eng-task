@@ -52,10 +52,8 @@ export const useClassStore = defineStore('class', {
       useToast().success($i18n.t('class.deleted'))
     },
 
-    // BUG: Direct nested mutation — won't trigger Vue reactivity in watchers/computed
     async updateSchedule(classId, sessionIndex, data) {
-      const res = await useApi().put(`/classes/${classId}/schedule/${sessionIndex}`, data)
-      this.class.schedule[sessionIndex] = res
+      await useApi().put(`/classes/${classId}/schedule/${sessionIndex}`, data)
     },
 
     async addScheduleSession(classId, data) {

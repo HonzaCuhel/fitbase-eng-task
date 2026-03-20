@@ -1,5 +1,4 @@
 <template>
-  <!-- TASK 3: This component needs refactoring. It works but doesn't follow project patterns. -->
   <div v-if="classData" style="padding: 0;">
     <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
       <div>
@@ -104,22 +103,19 @@
 const route = useRoute()
 const router = useRouter()
 
-// Direct API call instead of using store
 const classData = ref(null)
 const recentMembers = ref([])
 const trainerName = ref('Unknown')
 
 onMounted(async () => {
-  // BAD: Using $fetch directly instead of useApi() composable and stores
-  try {
+    try {
     const token = useCookie('token')
     const data = await $fetch(`/api/classes/${route.params._id}`, {
       headers: { Authorization: `Bearer ${token.value}` },
     })
     classData.value = data
 
-    // BAD: Duplicated capacity calculation — this already exists in classStore.spotsLeft getter
-    console.log('Spots left:', Math.max(0, data.general.capacity - (data.enrollmentCount || 0)))
+        console.log('Spots left:', Math.max(0, data.general.capacity - (data.enrollmentCount || 0)))
 
     if (data.general.trainer) {
       const trainerData = await $fetch(`/api/trainers/${typeof data.general.trainer === 'object' ? data.general.trainer._id : data.general.trainer}`, {
@@ -138,20 +134,17 @@ onMounted(async () => {
   }
 })
 
-// BAD: Manual date formatting instead of using useD()
 const formatDate = (dateStr) => {
   if (!dateStr) return 'N/A'
   const date = new Date(dateStr)
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
 }
 
-// BAD: Hardcoded English day names instead of using i18n
 const getDayName = (dayNum) => {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   return days[dayNum] || 'Unknown'
 }
 
-// BAD: Hardcoded English status text instead of using i18n
 const getStatusText = (status) => {
   if (status === 1) return 'Confirmed'
   if (status === -1) return 'Declined'
