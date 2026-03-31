@@ -37,8 +37,26 @@ const props = defineProps({
 
 const authStore = useAuthStore()
 const membersStore = useMembersStore()
+const storageKey = computed(() => `fitbase-insights-${props.classId}`)
 const insights = ref([])
 const isGenerating = ref(false)
+
+const saveInsights = () => {
+  try {
+    sessionStorage.setItem(storageKey.value, JSON.stringify(insights.value))
+  }
+  catch { /* storage full or unavailable */ }
+}
+
+const restoreInsights = () => {
+  try {
+    const stored = sessionStorage.getItem(storageKey.value)
+    if (stored) insights.value = JSON.parse(stored)
+  }
+  catch { /* corrupted data */ }
+}
+
+restoreInsights()
 
 const typeEmoji = {
   warning: '⚠️',
@@ -114,7 +132,10 @@ const generate = async () => {
         if (!line.trim()) continue
         try {
           const partial = JSON.parse(line)
-          if (partial.insights) insights.value = partial.insights
+          if (partial.insights) {
+            insights.value = partial.insights
+            saveInsights()
+          }
         }
         catch (parseError) {
           void parseError
@@ -125,7 +146,10 @@ const generate = async () => {
     if (buffer.trim()) {
       try {
         const partial = JSON.parse(buffer)
-        if (partial.insights) insights.value = partial.insights
+        if (partial.insights) {
+          insights.value = partial.insights
+          saveInsights()
+        }
       }
       catch (parseError) {
         void parseError

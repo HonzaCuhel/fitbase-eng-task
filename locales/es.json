@@ -222,6 +222,7 @@
     "generateDescription": "Error al generar la descripción",
     "enrollmentFailed": "Error en la inscripción",
     "loadPublicClasses": "Error al cargar las clases",
-    "loadPublicClass": "Error al cargar la clase"
+    "loadPublicClass": "Error al cargar la clase",
+    "classFull": "La clase está llena — no se puede confirmar a este miembro"
   }
 }

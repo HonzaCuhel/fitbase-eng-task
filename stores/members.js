@@ -72,15 +72,17 @@ export const useMembersStore = defineStore('members', {
       const result = await useApi().put(`/classes/${classId}/members/${memberId}`, data)
       const index = this.members.findIndex((m) => m._id === memberId)
       if (index !== -1) this.members.splice(index, 1, result)
+      if (data.status?.confirmation === -1 || data.status?.confirmation === 1) {
+        await this.fetchMembers(classId).catch(() => {})
+      }
       return result
     },
 
     async deleteMember(classId, memberId) {
       await useApi().delete(`/classes/${classId}/members/${memberId}`)
-      this.members = this.members.filter((m) => m._id !== memberId)
-      this.total--
       const { $i18n } = useNuxtApp()
       useToast().success($i18n.t('member.removed'))
+      await this.fetchMembers(classId).catch(() => {})
     },
 
     async fetchMembersForExport(classId) {

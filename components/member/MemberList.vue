@@ -66,9 +66,17 @@ const modalStore = useModalStore()
 const membersStore = useMembersStore()
 
 const updateStatus = async (memberId, confirmation) => {
-  await membersStore.updateMember(props.classId, memberId, {
-    status: { confirmation },
-  })
+  try {
+    await membersStore.updateMember(props.classId, memberId, {
+      status: { confirmation },
+    })
+  }
+  catch (error) {
+    const message = error?.data?.error === 'Class is full'
+      ? t('errors.classFull')
+      : error?.data?.error || t('errors.updateClass')
+    useToast().error(message)
+  }
 }
 
 const removeMember = (memberId) => {

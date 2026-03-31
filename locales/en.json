@@ -222,6 +222,7 @@
     "generateDescription": "Failed to generate description",
     "enrollmentFailed": "Enrollment failed",
     "loadPublicClasses": "Failed to load classes",
-    "loadPublicClass": "Failed to load class"
+    "loadPublicClass": "Failed to load class",
+    "classFull": "Class is full — cannot confirm this member"
   }
 }

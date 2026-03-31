@@ -222,6 +222,7 @@
     "generateDescription": "Nepodařilo se vygenerovat popis",
     "enrollmentFailed": "Registrace se nezdařila",
     "loadPublicClasses": "Nepodařilo se načíst kurzy",
-    "loadPublicClass": "Nepodařilo se načíst kurz"
+    "loadPublicClass": "Nepodařilo se načíst kurz",
+    "classFull": "Kurz je plný — nelze potvrdit tohoto člena"
   }
 }
