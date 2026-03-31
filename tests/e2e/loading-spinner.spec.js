@@ -3,8 +3,6 @@ import { test, expect } from 'playwright/test'
 test.describe('Loading spinners replace text-based loading', () => {
   test('app.vue shows v-loading spinner instead of "Loading..." text', async ({ page }) => {
     await page.goto('/')
-    // The el-loading spinner should appear (Element Plus loading overlay)
-    const loadingOverlay = page.locator('.el-loading-mask')
     // Should NOT show plain "Loading..." text
     await expect(page.getByText('Loading...', { exact: true })).not.toBeVisible()
   })

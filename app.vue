@@ -17,7 +17,7 @@ import cs from 'element-plus/es/locale/lang/cs'
 import es from 'element-plus/es/locale/lang/es'
 import dayjs from 'dayjs'
 
-const { locale } = useI18n()
+const { locale, setLocale } = useI18n()
 const gymStore = useGymStore()
 const authStore = useAuthStore()
 
@@ -33,6 +33,9 @@ onMounted(async () => {
   if (authStore.token && !authStore.user) {
     await authStore.fetchUser()
   }
+  if (authStore.user?.locale && authStore.user.locale !== locale.value) {
+    await setLocale(authStore.user.locale)
+  }
   if (authStore.isLoggedIn) {
     await gymStore.fetch()
   }
@@ -41,5 +44,5 @@ onMounted(async () => {
 
 watch(locale, (val) => {
   dayjs.locale(val)
-})
+}, { immediate: true })
 </script>

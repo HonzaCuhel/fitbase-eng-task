@@ -1,4 +1,5 @@
 import { updateEnrollmentCount } from '../class/_class.functions.js'
+import mongoose from 'mongoose'
 
 // Promotes the oldest waitlisted member to confirmed for a class.
 // Call this BEFORE updateEnrollmentCount so the promotion is reflected in the final counts.
@@ -156,10 +157,12 @@ class Controller {
   }
 
   async exportMembers(ctx) {
-    const find = {}
-    if (ctx.params._id) find.class = ctx.params._id
+    const classId = ctx.params._id
+    if (!classId || !mongoose.Types.ObjectId.isValid(classId)) {
+      ctx.throw(400, 'Invalid class ID')
+    }
 
-    const results = await ctx.Member.find(find).sort({ 'properties.lastName': 1 })
+    const results = await ctx.Member.find({ class: classId }).sort({ 'properties.lastName': 1 })
     ctx.body = { results }
   }
 

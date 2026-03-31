@@ -55,7 +55,7 @@ const generate = async () => {
       emit('generated', fullText)
     }
   }
-  catch (error) {
+  catch {
     useToast().error(useT()('errors.generateDescription'))
   }
   finally {

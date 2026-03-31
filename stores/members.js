@@ -84,6 +84,9 @@ export const useMembersStore = defineStore('members', {
     },
 
     async fetchMembersForExport(classId) {
+      if (!classId || classId === 'undefined') {
+        throw new Error('Class ID is required for export')
+      }
       const data = await useApi().get(`/classes/${classId}/members/export`)
       return data.results
     },

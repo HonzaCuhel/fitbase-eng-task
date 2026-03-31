@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   trainers: { type: Array, required: true },
   loading: { type: Boolean, default: false },
 })

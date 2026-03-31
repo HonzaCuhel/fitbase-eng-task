@@ -34,6 +34,14 @@
       <StatTile v-for="stat in statTiles" :key="stat.label" :value="String(stat.value)" :label="stat.label" />
     </div>
 
+    <div class="mb-6">
+      <AiEnrollmentInsights
+        v-if="classStore.class"
+        :class-data="classStore.class"
+        :class-id="classId"
+      />
+    </div>
+
     <MemberList
       :members="membersStore.members"
       :loading="membersStore.isLoading"
@@ -47,6 +55,7 @@ const route = useRoute()
 const t = useT()
 useHead({ title: t('class.members') })
 const membersStore = useMembersStore()
+const classStore = useClassStore()
 const dialogStore = useDialogStore()
 
 const classId = computed(() => route.params._id)

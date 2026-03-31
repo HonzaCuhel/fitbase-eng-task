@@ -65,7 +65,7 @@ const fetchMembers = async () => {
     const data = await api.get('/members', params)
     members.value = data.results
   }
-  catch (error) {
+  catch {
     useToast().error(useT()('errors.loadMembers'))
   }
   finally {

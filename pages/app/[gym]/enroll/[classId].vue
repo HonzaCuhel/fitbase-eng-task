@@ -6,7 +6,9 @@
 
     <div v-if="isSuccess" class="rounded-lg border border-green-200 bg-green-50 p-8 text-center">
       <Icon name="check-circle-broken" class="mx-auto mb-2 h-8 w-8 text-green-600" />
-      <p class="text-green-800">{{ $t('app.enrollSuccess') }}</p>
+      <p class="text-green-800">
+        {{ isWaitlisted ? $t('app.waitlistSuccess') : $t('app.enrollSuccess') }}
+      </p>
       <NuxtLink :to="`/app/${gymSlug}`" class="mt-4 inline-block text-primary hover:underline">
         {{ $t('app.browseClasses') }}
       </NuxtLink>
@@ -70,12 +72,14 @@ const rules = {
 }
 
 const isSubmitting = ref(false)
+const isWaitlisted = ref(false)
 const isSuccess = ref(false)
 
 const onSubmit = async () => {
   isSubmitting.value = true
   try {
-    await memberAppStore.enrollPublic(classId.value, form.value)
+    const result = await memberAppStore.enrollPublic(classId.value, form.value)
+    isWaitlisted.value = result?.status?.confirmation === 2
     isSuccess.value = true
   }
   catch (error) {

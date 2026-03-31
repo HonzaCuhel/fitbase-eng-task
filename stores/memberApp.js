@@ -18,7 +18,7 @@ export const useMemberAppStore = defineStore('memberApp', {
         this.classes = data.results
         return data
       }
-      catch (error) {
+      catch {
         useToast().error(useNuxtApp().$i18n.t('errors.loadPublicClasses'))
       }
       finally {
@@ -32,7 +32,7 @@ export const useMemberAppStore = defineStore('memberApp', {
         this.selectedClass = data
         return data
       }
-      catch (error) {
+      catch {
         useToast().error(useNuxtApp().$i18n.t('errors.loadPublicClass'))
       }
     },
