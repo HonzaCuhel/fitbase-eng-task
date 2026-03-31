@@ -9,10 +9,10 @@
 
     <div class="flex items-center gap-4">
       <Select
-        :model-value="locale"
+        :model-value="selectedLocale"
         :options="localeOptions"
         class="w-32"
-        @update:model-value="(val) => locale = val"
+        @update:model-value="onLocaleChange"
       />
 
       <div class="flex items-center gap-2">
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
+const { locale, setLocale } = useI18n()
 const authStore = useAuthStore()
 const gymStore = useGymStore()
 const generalStore = useGeneralStore()
@@ -36,4 +36,24 @@ const localeOptions = [
   { id: 'cs', text: 'Čeština' },
   { id: 'es', text: 'Español' },
 ]
+
+const selectedLocale = computed(() => locale.value)
+
+const onLocaleChange = async (val) => {
+  if (!val || val === locale.value) return
+
+  await setLocale(val)
+
+  if (authStore.user && authStore.user.locale !== val) {
+    const previousLocale = authStore.user.locale
+    authStore.user.locale = val
+
+    try {
+      await useApi().put('/users/me', { locale: val })
+    }
+    catch {
+      authStore.user.locale = previousLocale
+    }
+  }
+}
 </script>

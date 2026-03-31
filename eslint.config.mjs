@@ -1,7 +1,11 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default withNuxt([
   {
+    plugins: {
+      '@stylistic': stylistic,
+    },
     rules: {
       'vue/multi-word-component-names': 'off',
       'vue/no-multiple-template-root': 'off',

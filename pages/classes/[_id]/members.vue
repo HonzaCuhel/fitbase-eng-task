@@ -52,11 +52,11 @@ const dialogStore = useDialogStore()
 const classId = computed(() => route.params._id)
 const search = ref('')
 
-const statusFilters = [
+const statusFilters = computed(() => [
   { value: 1, label: t('member.status.confirmed') },
   { value: 0, label: t('member.status.pending') },
   { value: -1, label: t('member.status.declined') },
-]
+])
 
 const statTiles = computed(() => [
   { label: t('dashboard.totalMembers'), value: membersStore.stats.total },

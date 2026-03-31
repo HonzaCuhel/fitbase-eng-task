@@ -42,11 +42,11 @@ const classesStore = useClassesStore()
 const dialogStore = useDialogStore()
 
 const search = ref('')
-const statuses = [
+const statuses = computed(() => [
   { value: 'published', label: t('class.status.published') },
   { value: 'draft', label: t('class.status.draft') },
   { value: 'archived', label: t('class.status.archived') },
-]
+])
 
 const openAddClass = () => {
   dialogStore.open({
