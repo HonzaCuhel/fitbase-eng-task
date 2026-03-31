@@ -29,7 +29,9 @@
     "clearFilters": "Zrusit filtry",
     "showing": "Zobrazeno {from}-{to} z {total}",
     "createdAt": "Vytvoreno",
-    "updatedAt": "Aktualizovano"
+    "updatedAt": "Aktualizovano",
+    "notSet": "Nenastaveno",
+    "tbd": "TBD"
   },
   "auth": {
     "login": "Prihlasit se",
@@ -86,7 +88,14 @@
     "generating": "Generovani...",
     "dangerZone": "Nebezpečná zóna",
     "deleteWarning": "Smazání kurzu odstraní všechny registrované členy a data rozvrhu.",
-    "confirmDelete": "Opravdu chcete smazat \"{title}\"?"
+    "confirmDelete": "Opravdu chcete smazat \"{title}\"?",
+    "waitlistCount": "{count} na cekaci listine",
+    "waitlistOpen": "Cekaci listina otevrena",
+    "aboutClass": "O teto hodine",
+    "noDescription": "Popis neni k dispozici.",
+    "noSchedule": "Rozvrh neni nastaven.",
+    "details": "Detaily",
+    "recentMembers": "Nedavni cleni"
   },
   "member": {
     "title": "Clenove",
@@ -101,7 +110,8 @@
     "status": {
       "confirmed": "Potvrzeno",
       "pending": "Cekajici",
-      "declined": "Odmitnuto"
+      "declined": "Odmitnuto",
+      "waitlisted": "Na cekaci listine"
     },
     "importMembers": "Import clenu",
     "exportMembers": "Export clenu",
@@ -178,7 +188,9 @@
     "poweredBy": "Provozuje",
     "classDetails": "Detail lekce",
     "aboutTrainer": "O lektorovi",
-    "classSchedule": "Rozvrh"
+    "classSchedule": "Rozvrh",
+    "joinWaitlist": "Pridat se na cekaci listinu",
+    "waitlistSuccess": "Jste na cekaci listine! Upozornime vas, pokud se uvolni misto."
   },
   "ai": {
     "insights": "AI analyza",

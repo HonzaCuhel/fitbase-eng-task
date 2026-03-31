@@ -29,7 +29,9 @@
     "clearFilters": "Limpiar filtros",
     "showing": "Mostrando {from}-{to} de {total}",
     "createdAt": "Creado",
-    "updatedAt": "Actualizado"
+    "updatedAt": "Actualizado",
+    "notSet": "No establecido",
+    "tbd": "Por definir"
   },
   "auth": {
     "login": "Iniciar sesion",
@@ -86,7 +88,14 @@
     "generating": "Generando...",
     "dangerZone": "Zona de peligro",
     "deleteWarning": "Eliminar una clase eliminará todos los miembros inscritos y los datos del horario.",
-    "confirmDelete": "¿Estás seguro de que deseas eliminar \"{title}\"?"
+    "confirmDelete": "¿Estás seguro de que deseas eliminar \"{title}\"?",
+    "waitlistCount": "{count} en lista de espera",
+    "waitlistOpen": "Lista de espera abierta",
+    "aboutClass": "Acerca de esta clase",
+    "noDescription": "No hay descripcion disponible.",
+    "noSchedule": "No hay horario establecido.",
+    "details": "Detalles",
+    "recentMembers": "Miembros recientes"
   },
   "member": {
     "title": "Miembros",
@@ -101,7 +110,8 @@
     "status": {
       "confirmed": "Confirmado",
       "pending": "Pendiente",
-      "declined": "Rechazado"
+      "declined": "Rechazado",
+      "waitlisted": "En lista de espera"
     },
     "importMembers": "Importar miembros",
     "exportMembers": "Exportar miembros",
@@ -178,7 +188,9 @@
     "poweredBy": "Desarrollado por",
     "classDetails": "Detalles de la clase",
     "aboutTrainer": "Sobre el instructor",
-    "classSchedule": "Horario"
+    "classSchedule": "Horario",
+    "joinWaitlist": "Unirse a la lista de espera",
+    "waitlistSuccess": "Estas en la lista de espera. Te notificaremos si se abre un lugar."
   },
   "ai": {
     "insights": "Analisis IA",

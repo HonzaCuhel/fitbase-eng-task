@@ -29,7 +29,9 @@
     "clearFilters": "Clear filters",
     "showing": "Showing {from}-{to} of {total}",
     "createdAt": "Created",
-    "updatedAt": "Updated"
+    "updatedAt": "Updated",
+    "notSet": "Not set",
+    "tbd": "TBD"
   },
   "auth": {
     "login": "Log in",
@@ -86,7 +88,14 @@
     "generating": "Generating...",
     "dangerZone": "Danger Zone",
     "deleteWarning": "Deleting a class will remove all enrolled members and schedule data.",
-    "confirmDelete": "Are you sure you want to delete \"{title}\"?"
+    "confirmDelete": "Are you sure you want to delete \"{title}\"?",
+    "waitlistCount": "{count} waitlisted",
+    "waitlistOpen": "Waitlist open",
+    "aboutClass": "About this class",
+    "noDescription": "No description available.",
+    "noSchedule": "No schedule set.",
+    "details": "Details",
+    "recentMembers": "Recent Members"
   },
   "member": {
     "title": "Members",
@@ -101,7 +110,8 @@
     "status": {
       "confirmed": "Confirmed",
       "pending": "Pending",
-      "declined": "Declined"
+      "declined": "Declined",
+      "waitlisted": "Waitlisted"
     },
     "importMembers": "Import members",
     "exportMembers": "Export members",
@@ -178,7 +188,9 @@
     "poweredBy": "Powered by",
     "classDetails": "Class Details",
     "aboutTrainer": "About the Trainer",
-    "classSchedule": "Schedule"
+    "classSchedule": "Schedule",
+    "joinWaitlist": "Join Waitlist",
+    "waitlistSuccess": "You're on the waitlist! We'll notify you if a spot opens."
   },
   "ai": {
     "insights": "AI Insights",
