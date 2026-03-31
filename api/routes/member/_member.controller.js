@@ -1,5 +1,15 @@
 import { updateEnrollmentCount } from '../class/_class.functions.js'
 
+// Promotes the oldest waitlisted member to confirmed for a class.
+// Call this BEFORE updateEnrollmentCount so the promotion is reflected in the final counts.
+const promoteFirstWaitlisted = async (ctx, classId) => {
+  await ctx.Member.findOneAndUpdate(
+    { class: classId, 'status.confirmation': 2 },
+    { 'status.confirmation': 1 },
+    { sort: { enrolledAt: 1 } },
+  )
+}
+
 class Controller {
   async getMembers(ctx) {
     const find = {}
@@ -11,7 +21,7 @@ class Controller {
         { 'properties.email': { $regex: ctx.query.search, $options: 'i' } },
       ]
     }
-    if (ctx.query.status) find['status.confirmation'] = parseInt(ctx.query.status)
+    if (ctx.query.status !== undefined) find['status.confirmation'] = parseInt(ctx.query.status)
 
     const page = parseInt(ctx.query.page) || 1
     const limit = parseInt(ctx.query.limit) || 50
@@ -26,11 +36,14 @@ class Controller {
 
     const total = await ctx.Member.countDocuments(find)
 
-    const stats = ctx.params._id ? {
-      total,
-      confirmed: await ctx.Member.countDocuments({ ...find, 'status.confirmation': 1 }),
-      pending: await ctx.Member.countDocuments({ ...find, 'status.confirmation': 0 }),
-      declined: await ctx.Member.countDocuments({ ...find, 'status.confirmation': -1 }),
+    // Stats always count from the full class, not the filtered view
+    const classFind = ctx.params._id ? { class: ctx.params._id } : null
+    const stats = classFind ? {
+      total: await ctx.Member.countDocuments(classFind),
+      confirmed: await ctx.Member.countDocuments({ ...classFind, 'status.confirmation': 1 }),
+      pending: await ctx.Member.countDocuments({ ...classFind, 'status.confirmation': 0 }),
+      declined: await ctx.Member.countDocuments({ ...classFind, 'status.confirmation': -1 }),
+      waitlisted: await ctx.Member.countDocuments({ ...classFind, 'status.confirmation': 2 }),
     } : { total }
 
     ctx.body = { results, total, stats, page, limit }
@@ -44,10 +57,18 @@ class Controller {
 
   async addMember(ctx) {
     try {
-      const member = await ctx.Member.create({
-        class: ctx.params._id,
-        ...ctx.request.body,
-      })
+      const classDoc = await ctx.Class.findById(ctx.params._id)
+      const body = { ...ctx.request.body }
+
+      // If the class is full, force status to waitlisted (2) for pending/unset/confirmed enrollments
+      if (classDoc && classDoc.enrollmentCount >= classDoc.general.capacity) {
+        const incomingStatus = body.status?.confirmation
+        if (incomingStatus === undefined || incomingStatus === 0 || incomingStatus === 1) {
+          body.status = { ...body.status, confirmation: 2 }
+        }
+      }
+
+      const member = await ctx.Member.create({ class: ctx.params._id, ...body })
       await updateEnrollmentCount(ctx, ctx.params._id)
       ctx.body = member
       ctx.status = 201
@@ -61,6 +82,9 @@ class Controller {
     const { members } = ctx.request.body
     if (!Array.isArray(members)) ctx.throw(400, 'Members must be an array')
 
+    const classDoc = await ctx.Class.findById(ctx.params._id)
+    const isFull = classDoc && classDoc.enrollmentCount >= classDoc.general.capacity
+
     const results = []
     const errors = []
 
@@ -69,7 +93,7 @@ class Controller {
         const member = await ctx.Member.create({
           class: ctx.params._id,
           properties: memberData,
-          status: { confirmation: 0, addMethod: 'batchImport' },
+          status: { confirmation: isFull ? 2 : 0, addMethod: 'batchImport' },
         })
         results.push(member)
       }
@@ -84,14 +108,30 @@ class Controller {
 
   async updateMember(ctx) {
     try {
+      const before = await ctx.Member.findById(ctx.params.memberId)
+      if (!before) ctx.throw(404, 'Member not found')
+
+      const newConfirmation = ctx.request.body.status?.confirmation
+
+      // Capacity guard: block admin from confirming a member into a full class
+      if (newConfirmation === 1 && before.status.confirmation !== 1) {
+        const classDoc = await ctx.Class.findById(before.class)
+        if (classDoc && classDoc.enrollmentCount >= classDoc.general.capacity) {
+          ctx.throw(400, 'Class is full')
+        }
+      }
+
       const member = await ctx.Member.findByIdAndUpdate(
         ctx.params.memberId,
         ctx.request.body,
         { new: true, runValidators: true },
       )
-      if (!member) ctx.throw(404, 'Member not found')
 
-      if (ctx.request.body.status?.confirmation !== undefined) {
+      if (newConfirmation !== undefined) {
+        // When a confirmed member declines, promote the first waitlisted member
+        if (before.status.confirmation === 1 && newConfirmation === -1) {
+          await promoteFirstWaitlisted(ctx, member.class)
+        }
         await updateEnrollmentCount(ctx, member.class)
       }
 
@@ -105,6 +145,12 @@ class Controller {
   async deleteMember(ctx) {
     const member = await ctx.Member.findByIdAndDelete(ctx.params.memberId)
     if (!member) ctx.throw(404, 'Member not found')
+
+    // When a confirmed member is removed, promote the first waitlisted member
+    if (member.status.confirmation === 1) {
+      await promoteFirstWaitlisted(ctx, member.class)
+    }
+
     await updateEnrollmentCount(ctx, member.class)
     ctx.body = { success: true }
   }
