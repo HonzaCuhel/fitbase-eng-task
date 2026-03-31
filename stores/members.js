@@ -2,7 +2,7 @@ export const useMembersStore = defineStore('members', {
   state: () => ({
     members: [],
     total: 0,
-    stats: { total: 0, confirmed: 0, pending: 0, declined: 0 },
+    stats: { total: 0, confirmed: 0, pending: 0, declined: 0, waitlisted: 0 },
     page: 1,
     limit: 50,
     search: '',
@@ -18,7 +18,7 @@ export const useMembersStore = defineStore('members', {
     resetMembers() {
       this.members = []
       this.total = 0
-      this.stats = { total: 0, confirmed: 0, pending: 0, declined: 0 }
+      this.stats = { total: 0, confirmed: 0, pending: 0, declined: 0, waitlisted: 0 }
       this.page = 1
       this.search = ''
       this.filters = { status: null }
@@ -90,14 +90,19 @@ export const useMembersStore = defineStore('members', {
 
     formatMembersForExport(members) {
       const { $i18n } = useNuxtApp()
-      const statusMap = { 1: $i18n.t('member.status.confirmed'), 0: $i18n.t('member.status.pending'), '-1': $i18n.t('member.status.declined') }
+      const statusMap = {
+        1: $i18n.t('member.status.confirmed'),
+        0: $i18n.t('member.status.pending'),
+        2: $i18n.t('member.status.waitlisted'),
+        '-1': $i18n.t('member.status.declined'),
+      }
 
       return members.map((m) => ({
         firstName: m.properties.firstName,
         lastName: m.properties.lastName,
         email: m.properties.email,
         phone: m.properties.phone || '',
-        status: statusMap[m.status.confirmation] || t('member.status.pending'),
+        status: statusMap[m.status.confirmation] ?? $i18n.t('member.status.pending'),
         enrolledAt: m.enrolledAt,
       }))
     },
