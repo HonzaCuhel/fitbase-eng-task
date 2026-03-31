@@ -24,8 +24,8 @@ export const useMembersStore = defineStore('members', {
       this.filters = { status: null }
     },
 
-    async fetchMembers(classId) {
-      this.isLoading = true
+    async fetchMembers(classId, { silent = false } = {}) {
+      if (!silent) this.isLoading = true
       try {
         const params = {
           page: this.page,
@@ -73,7 +73,7 @@ export const useMembersStore = defineStore('members', {
       const index = this.members.findIndex((m) => m._id === memberId)
       if (index !== -1) this.members.splice(index, 1, result)
       if (data.status?.confirmation === -1 || data.status?.confirmation === 1) {
-        await this.fetchMembers(classId).catch(() => {})
+        await this.fetchMembers(classId, { silent: true }).catch(() => {})
       }
       return result
     },
@@ -82,7 +82,7 @@ export const useMembersStore = defineStore('members', {
       await useApi().delete(`/classes/${classId}/members/${memberId}`)
       const { $i18n } = useNuxtApp()
       useToast().success($i18n.t('member.removed'))
-      await this.fetchMembers(classId).catch(() => {})
+      await this.fetchMembers(classId, { silent: true }).catch(() => {})
     },
 
     async fetchMembersForExport(classId) {

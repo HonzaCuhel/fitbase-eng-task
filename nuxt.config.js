@@ -3,6 +3,8 @@ import { resolve } from 'path'
 export default defineNuxtConfig({
   extends: ['@attendu/design-system'],
 
+  buildDir: process.env.NUXT_BUILD_DIR || '.nuxt',
+
   modules: [
     '@pinia/nuxt',
     '@nuxt/eslint',
@@ -34,10 +36,7 @@ export default defineNuxtConfig({
   },
 
   imports: {
-    dirs: ['stores', 'utils'],
-    imports: [
-      { name: 'defineStore', from: 'pinia' },
-    ],
+    dirs: ['stores'],
   },
 
   i18n: {

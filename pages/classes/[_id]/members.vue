@@ -30,8 +30,11 @@
       </div>
     </div>
 
-    <div class="mb-6 flex flex-wrap gap-4">
-      <StatTile v-for="stat in statTiles" :key="stat.label" :value="String(stat.value)" :label="stat.label" />
+    <div class="mb-6 flex flex-wrap items-center gap-4">
+      <div class="flex flex-wrap items-center gap-4">
+        <StatTile v-for="stat in statTiles" :key="stat.label" :value="String(stat.value)" :label="stat.label" />
+      </div>
+      <MemberStatusChart :stats="membersStore.stats" />
     </div>
 
     <div class="mb-6">
