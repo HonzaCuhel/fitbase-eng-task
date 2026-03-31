@@ -53,7 +53,9 @@ export const useClassStore = defineStore('class', {
     },
 
     async updateSchedule(classId, sessionIndex, data) {
-      await useApi().put(`/classes/${classId}/schedule/${sessionIndex}`, data)
+      const res = await useApi().put(`/classes/${classId}/schedule/${sessionIndex}`, data)
+      this.class.schedule.splice(sessionIndex, 1, res)
+      return res
     },
 
     async addScheduleSession(classId, data) {
