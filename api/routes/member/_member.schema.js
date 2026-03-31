@@ -9,7 +9,7 @@ const schema = new mongoose.Schema({
     phone: { type: String, maxlength: 50 },
   },
   status: {
-    confirmation: { type: Number, default: 0 }, // -1=declined, 0=pending, 1=confirmed
+    confirmation: { type: Number, default: 0 }, // -1=declined, 0=pending, 1=confirmed, 2=waitlisted
     addMethod: { type: String, enum: ['singleAdd', 'batchImport', 'publicRegistration'], default: 'singleAdd' },
   },
   enrolledAt: { type: Date, default: Date.now },
@@ -19,5 +19,6 @@ const schema = new mongoose.Schema({
 
 schema.index({ class: 1 })
 schema.index({ 'properties.email': 1, class: 1 }, { unique: true })
+schema.index({ class: 1, 'status.confirmation': 1, enrolledAt: 1 })
 
 export default schema

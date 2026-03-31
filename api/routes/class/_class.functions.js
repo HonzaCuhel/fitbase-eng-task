@@ -1,10 +1,14 @@
 export const updateEnrollmentCount = async (ctx, classId) => {
-  const count = await ctx.Member.countDocuments({
+  const enrollmentCount = await ctx.Member.countDocuments({
     class: classId,
     'status.confirmation': 1,
   })
-  await ctx.Class.findByIdAndUpdate(classId, { enrollmentCount: count })
-  return count
+  const waitlistCount = await ctx.Member.countDocuments({
+    class: classId,
+    'status.confirmation': 2,
+  })
+  await ctx.Class.findByIdAndUpdate(classId, { enrollmentCount, waitlistCount })
+  return { enrollmentCount, waitlistCount }
 }
 
 export const formatClassForResponse = (classDoc) => {
@@ -13,5 +17,6 @@ export const formatClassForResponse = (classDoc) => {
     ...obj,
     isFull: obj.enrollmentCount >= (obj.general?.capacity || Infinity),
     spotsLeft: Math.max(0, (obj.general?.capacity || 0) - (obj.enrollmentCount || 0)),
+    waitlistCount: obj.waitlistCount || 0,
   }
 }

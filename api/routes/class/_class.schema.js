@@ -20,6 +20,7 @@ const schema = new mongoose.Schema({
     room: { type: String, maxlength: 255 },
   }],
   enrollmentCount: { type: Number, default: 0 },
+  waitlistCount: { type: Number, default: 0 },
 }, {
   timestamps: true,
 })
