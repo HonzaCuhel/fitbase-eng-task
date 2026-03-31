@@ -15,6 +15,9 @@
       <span>
         {{ classData.enrollmentCount || 0 }}/{{ classData.general.capacity }}
         {{ $t('class.members').toLowerCase() }}
+        <span v-if="classData.waitlistCount" class="ml-1 text-gray-300">
+          · {{ $t('class.waitlistCount', { count: classData.waitlistCount }) }}
+        </span>
       </span>
     </div>
 

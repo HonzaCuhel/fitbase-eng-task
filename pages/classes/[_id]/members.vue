@@ -55,6 +55,7 @@ const search = ref('')
 const statusFilters = computed(() => [
   { value: 1, label: t('member.status.confirmed') },
   { value: 0, label: t('member.status.pending') },
+  { value: 2, label: t('member.status.waitlisted') },
   { value: -1, label: t('member.status.declined') },
 ])
 
@@ -62,6 +63,7 @@ const statTiles = computed(() => [
   { label: t('dashboard.totalMembers'), value: membersStore.stats.total },
   { label: t('member.status.confirmed'), value: membersStore.stats.confirmed },
   { label: t('member.status.pending'), value: membersStore.stats.pending },
+  { label: t('member.status.waitlisted'), value: membersStore.stats.waitlisted },
   { label: t('member.status.declined'), value: membersStore.stats.declined },
 ])
 
