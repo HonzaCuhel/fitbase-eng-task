@@ -238,8 +238,9 @@ async function seed() {
 
   // Update enrollment counts
   for (const classDoc of classes) {
-    const count = await Member.countDocuments({ class: classDoc._id, 'status.confirmation': 1 })
-    await Class.findByIdAndUpdate(classDoc._id, { enrollmentCount: count })
+    const enrollmentCount = await Member.countDocuments({ class: classDoc._id, 'status.confirmation': 1 })
+    const waitlistCount = await Member.countDocuments({ class: classDoc._id, 'status.confirmation': 2 })
+    await Class.findByIdAndUpdate(classDoc._id, { enrollmentCount, waitlistCount })
   }
 
   console.log('Updated enrollment counts')
